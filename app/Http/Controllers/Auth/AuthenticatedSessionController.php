@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 namespace App\Http\Controllers\Auth;
 
@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 final class AuthenticatedSessionController
 {
-    /**
-     * Handle an incoming authentication request.
-     */
     public function store(LoginRequest $request): Response
     {
         $request->authenticate();
@@ -23,9 +20,6 @@ final class AuthenticatedSessionController
         return response()->noContent();
     }
 
-    /**
-     * Destroy an authenticated session.
-     */
     public function destroy(Request $request): Response
     {
         Auth::guard('web')->logout();
