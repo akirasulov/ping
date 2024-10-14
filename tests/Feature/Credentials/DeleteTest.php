@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 todo('an unauthenticated user gets the correct status code.');
 todo('an unauthenticated user cannot delete a resource they do not own.');
