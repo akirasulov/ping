@@ -23,6 +23,5 @@ return Application::configure(basePath: dirname(__DIR__))
             'sunset' => App\Http\Middleware\SunsetMiddleware::class,
             'verified' => App\Http\Middleware\EnsureEmailIsVerified::class,
         ]);
-
     })
     ->withExceptions(function (Exceptions $exceptions): void {})->create();
