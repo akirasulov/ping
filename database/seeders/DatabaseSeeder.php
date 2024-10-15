@@ -4,6 +4,7 @@ declare (strict_types = 1);
 
 namespace Database\Seeders;
 
+use App\Models\Check;
 use App\Models\Service;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -21,6 +22,13 @@ final class DatabaseSeeder extends Seeder
             'email' => 'akirasulov2323@gmail.com',
         ]);
 
-        Service::factory()->for($user)->count(100)->create();
+        $service = Service::factory()->for($user)->create(
+            [
+                'name' => 'Akmal Rasulov',
+                'url' => 'https:://akirasulov.com',
+            ]
+        );
+
+        Check::factory()->for($service)->count(10)->create();
     }
 }

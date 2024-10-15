@@ -28,7 +28,7 @@ final class CheckFactory extends Factory
             'credential_id' => $this->faker->boolean()
             ? Credential::factory()
             : null,
-            'services_id' => Service::factory(),
+            'service_id' => Service::factory(),
         ];
     }
 }

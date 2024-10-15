@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 namespace App\Models;
 
@@ -24,7 +24,7 @@ final class Check extends Model
         'headers',
         'parameters',
         'credential_id',
-        'services_id',
+        'service_id',
     ];
 
     /** @return BelongsTo<Credential> */
