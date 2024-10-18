@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace Database\Seeders;
 
@@ -26,7 +26,7 @@ final class DatabaseSeeder extends Seeder
             [
                 'name' => 'Akmal Rasulov',
                 'url' => 'https:://akirasulov.com',
-            ]
+            ],
         );
 
         Check::factory()->for($service)->count(10)->create();

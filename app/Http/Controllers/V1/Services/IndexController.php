@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Services;
 
@@ -17,22 +17,23 @@ final class IndexController
         $services = QueryBuilder::for(
             subject: Service::class,
         )
-        ->allowedFilters(
-            filters: [
-            'url'
-        ])
-        ->allowedIncludes(
-            includes: [
-                'checks',
-            ],
-        )->getEloquentBuilder()
+            ->allowedFilters(
+                filters: [
+                    'url',
+                ],
+            )
+            ->allowedIncludes(
+                includes: [
+                    'checks',
+                ],
+            )->getEloquentBuilder()
             ->simplePaginate(
-                config('app.pagination.limit')
+                config('app.pagination.limit'),
             );
 
         return new JsonResponse(
             data: ServiceResource::collection(
-                resource: $services
+                resource: $services,
             ),
         );
     }

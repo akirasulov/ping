@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Resources\V1;
 
 use App\Models\Service;
@@ -19,7 +21,7 @@ final class ServiceResource extends JsonApiResource
             'name' => $this->resource->name,
             'url' => $this->resource->url,
             'created' => new DateResource(
-                resource: $this->resource->created_at
+                resource: $this->resource->created_at,
             ),
         ];
     }
@@ -36,8 +38,8 @@ final class ServiceResource extends JsonApiResource
         return [
             'checks' => fn() => CheckResource::collection(
                 resource: $this->whenLoaded(
-                    relationship: 'checks'
-                )
+                    relationship: 'checks',
+                ),
             ),
         ];
     }

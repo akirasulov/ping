@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Checks;
 
@@ -15,12 +15,12 @@ final class IndexController
     {
         $checks = Check::query()
             ->simplePaginate(
-                config('app.pagination.limit')
+                config('app.pagination.limit'),
             );
 
         return new JsonResponse(
             data: CheckResource::collection(
-                resource: $checks
+                resource: $checks,
             ),
         );
     }

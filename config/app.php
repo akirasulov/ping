@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 return [
 
@@ -102,7 +102,7 @@ return [
     'key' => env('APP_KEY'),
 
     'previous_keys' => [
-         ...array_filter(
+        ...array_filter(
             explode(',', env('APP_PREVIOUS_KEYS', '')),
         ),
     ],
