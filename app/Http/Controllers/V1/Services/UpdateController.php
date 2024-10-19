@@ -23,7 +23,7 @@ final class UpdateController
     {
         if (!Gate::allows('update', $service)) {
             throw new UnauthorizedException(
-                message: 'Your are able to update this service that you do not own.',
+                message: __('services.v1.update.failure'),
                 code: Response::HTTP_FORBIDDEN,
             );
         }
@@ -46,7 +46,7 @@ final class UpdateController
         );
 
         return new MessageResponse(
-            message: 'We will update your service in the background.',
+            message: __('services.v1.update.failure'),
             status: Response::HTTP_ACCEPTED,
         );
     }

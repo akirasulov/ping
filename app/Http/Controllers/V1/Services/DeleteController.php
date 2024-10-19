@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\UnauthorizedException;
 use Symfony\Component\HttpFoundation\Response;
 
-final readonly class DeleteController
+readonly class DeleteController
 {
-    public function __construct(private readonly Dispatcher $bus)
+    final public function __construct(private readonly Dispatcher $bus)
     {}
     public function __invoke(Request $request, Service $service): MessageResponse
     {
         if (!Gate::allows('delete', $service)) {
             throw new UnauthorizedException(
-                message: 'Your cannot delete a service that you do not own.',
+                message: __('services.v1.delete.failure'),
                 code: Response::HTTP_FORBIDDEN,
             );
         }
@@ -33,7 +33,7 @@ final readonly class DeleteController
         );
 
         return new MessageResponse(
-            message: 'Your service will be deleted in the background.',
+            message: __('services.v1.delete.success'),
             status: Response::HTTP_ACCEPTED,
         );
     }
