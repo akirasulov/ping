@@ -13,6 +13,7 @@
         "laravel/pail": "^1.1",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
+        "predis/predis": "^2.0",
         "spatie/laravel-query-builder": "^6.2",
         "timacdonald/json-api": "v1.0.0-beta.7",
         "treblle/api-responses": "^0.0.2",
