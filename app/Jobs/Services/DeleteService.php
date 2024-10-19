@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Jobs\Services;
 
 use App\Models\Service;
@@ -10,7 +12,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
-class DeleteService implements ShouldQueue
+final class DeleteService implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;

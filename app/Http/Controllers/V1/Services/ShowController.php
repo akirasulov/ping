@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Services;
 
@@ -21,11 +21,11 @@ final class ShowController
         Cache::forever(
             key: CacheKey::Service->value . '_' . $ulid,
             value: $service = Service::findOrFail(
-                id: $ulid
+                id: $ulid,
             ),
         );
 
-        if (!Gate::allows('view', $service)) {
+        if ( ! Gate::allows('view', $service)) {
             throw new UnauthorizedException(
                 message: __('services.v1.show.failure'),
                 code: Response::HTTP_FORBIDDEN,
@@ -34,7 +34,7 @@ final class ShowController
 
         return new JsonResponse(
             data: new ServiceResource(
-                resource: $service
+                resource: $service,
             ),
         );
     }

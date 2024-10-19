@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Services;
 
@@ -24,7 +24,7 @@ final class IndexController
                     operator: '=',
                     value: auth()->id(),
                 ),
-                // ->get(),
+            // ->get(),
         );
 
         $services = QueryBuilder::for(

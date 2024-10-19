@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Services;
 
@@ -16,12 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class StoreController
 {
-    public function __construct(private readonly Dispatcher $bus)
-    {}
+    public function __construct(private readonly Dispatcher $bus) {}
 
     public function __invoke(WriteRequest $request): Response | Responsable
     {
-        if (!Gate::allows('create', Service::class)) {
+        if ( ! Gate::allows('create', Service::class)) {
             throw new UnauthorizedException(
                 message: __('services.v1.create.failure'),
                 code: Response::HTTP_FORBIDDEN,

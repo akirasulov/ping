@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Http\Controllers\V1\Services;
 
@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\UnauthorizedException;
 use Symfony\Component\HttpFoundation\Response;
 
-readonly class DeleteController
+final readonly class DeleteController
 {
-    final public function __construct(private readonly Dispatcher $bus)
-    {}
+    final public function __construct(private readonly Dispatcher $bus) {}
     public function __invoke(Request $request, Service $service): MessageResponse
     {
-        if (!Gate::allows('delete', $service)) {
+        if ( ! Gate::allows('delete', $service)) {
             throw new UnauthorizedException(
                 message: __('services.v1.delete.failure'),
                 code: Response::HTTP_FORBIDDEN,
